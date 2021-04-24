@@ -47,6 +47,6 @@ class EmailController extends Controller
         $mensaje->save();
         //manda a la cola de emails para ser enviado al momento de ejecutar el trabajo (job)
         dispatch(new SendEmails($mensaje,$email));
-        return redirect()->route('email')->with('info',"Email enviado");
+        return redirect()->route('email')->with('info',"Email agregado a la cola de Emails");
     }
 }

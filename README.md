@@ -5,10 +5,13 @@ A continuacion tenemos una secuencia de pasos para el uso de la aplicacion
 ## Instalacion
 
 Crear Base de datos llamada prueba_tecnica_laravel
+
+Configurar .ENV (Muestra .evn.example)
+
 ```
-Configurar .ENV
 DB_HOST=127.0.0.1
 DB_PORT=3306
+DB_DATABASE=prueba_tecnica_laravel
 DB_USERNAME=
 DB_PASSWORD=
 ```
@@ -25,6 +28,18 @@ contraseña: admin
 ```
 
 ## CORREO
+Configurar .ENV
+
+```
+QUEUE_CONNECTION=database
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=c270f24a2ba68f
+MAIL_PASSWORD=b22a188c953152
+MAIL_ENCRYPTION=tls
+```
+
 Enviar cola de emails
 ```
 php artisan queue:work  
