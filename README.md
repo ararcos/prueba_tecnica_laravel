@@ -287,3 +287,75 @@ GET api/emails?asunto=Hola
     }
 }
 ```
+## Obtener lista de emails cambiar numero de paginado
+Se debe agregar a cualquiera de las url anteriores el parametro paginate y el valor
+
+```
+GET api/emails?paginate=1
+GET api/emails?remitente=admin@admin.com?paginate=1
+GET api/emails?destinatario=admin@admin.com?paginate=1
+GET api/emails?asunto=Hola?paginate=1
+
+200 
+{
+    "data": [
+        {
+            "id": 1,
+            "asunto": "Hola",
+            "mensaje": "COmo estas",
+            "destinatario": "asd@asda.cpm",
+            "estado": "Enviado",
+            "remitente": {
+                "id": 1,
+                "email": "admin@admin.com",
+                "email_verified_at": null,
+                "nombre": "Admin",
+                "numero": "0987654321",
+                "cedula": "18765432123",
+                "fecha_nacimiento": "1999-05-14",
+                "ciudad": "Ambato",
+                "created_at": "2021-04-24T19:20:00.000000Z",
+                "updated_at": "2021-04-24T19:20:00.000000Z",
+                "edad": 21
+            }
+        }
+    ],
+    "links": {
+        "first": "http://localhost/prueba_tecnica_laravel/public/api/emails?paginate=1&page=1",
+        "last": "http://localhost/prueba_tecnica_laravel/public/api/emails?paginate=1&page=2",
+        "prev": null,
+        "next": "http://localhost/prueba_tecnica_laravel/public/api/emails?paginate=1&page=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 2,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Anterior",
+                "active": false
+            },
+            {
+                "url": "http://localhost/prueba_tecnica_laravel/public/api/emails?paginate=1&page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http://localhost/prueba_tecnica_laravel/public/api/emails?paginate=1&page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http://localhost/prueba_tecnica_laravel/public/api/emails?paginate=1&page=2",
+                "label": "Siguiente &raquo;",
+                "active": false
+            }
+        ],
+        "path": "http://localhost/prueba_tecnica_laravel/public/api/emails",
+        "per_page": "1",
+        "to": 1,
+        "total": 2
+    }
+}
+```
