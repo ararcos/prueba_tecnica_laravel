@@ -16,6 +16,7 @@ class Pais extends Model
         'nombre'
     ];
 
+    //relacion de un pais tiene muchos estados
     public function estados(){
         return $this->hasMany(Estado::class);
     }

@@ -18,6 +18,7 @@ class EmailController extends Controller
     }
     //muestra todos los emails registrados con su estado
     public function index(){
+        //obtiene el email del usuario logeado
         $emails = auth()->user()->emails;
         return view('mails.index',compact('emails'));
     }

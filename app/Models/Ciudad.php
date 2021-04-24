@@ -15,7 +15,8 @@ class Ciudad extends Model
         'state_id'
     ];
 
-    public function pais(){
+    //relacion de ciudad pertenece a un estado
+    public function estado(){
         return $this->belongsTo(Estado::class);
     }
 }

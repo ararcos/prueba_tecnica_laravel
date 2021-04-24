@@ -22,6 +22,7 @@ class EmailTest extends Mailable
      *
      * @return void
      */
+    //constructor de email que recibe el correo del remitente y el objeto email con los parametros(asunto,user_id,mensaje,destinatario)
     public function __construct(Email $email , $correo)
     {
         $this->email = $email;

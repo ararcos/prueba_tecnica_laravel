@@ -251,7 +251,6 @@
                 },
                 success: function(respuesta) {
                     for (i = 0; i < respuesta.length; i++) {
-                        console.log(respuesta[i].nombre)
                         $("#ciudad").append("<option value='" + respuesta[i].nombre + "'>" +
                             respuesta[i].nombre + "</option>");
                     }

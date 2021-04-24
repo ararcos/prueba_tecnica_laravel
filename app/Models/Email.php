@@ -9,7 +9,6 @@ class Email extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
     
     protected $fillable=[
         'asunto',
@@ -18,6 +17,7 @@ class Email extends Model
         'estado'
     ];
 
+    //relacion de un email pertenece a un usuario
     public function user(){
         return $this->belongsTo(User::class);
     }

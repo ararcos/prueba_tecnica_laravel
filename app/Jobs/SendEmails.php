@@ -36,8 +36,11 @@ class SendEmails implements ShouldQueue
      */
     public function handle()
     {
+        //cambia el estado del mensaje para luego guardarlo en la base de datos
         $this->mensaje->estado= 1;
+        //crea una nueva instancia de Email con el mensaje recibido y el email del remitente
         $correo = new EmailTest($this->mensaje,$this->email);
+        //envia el email
         Mail::to($this->mensaje->destinatario)->send($correo);
         $this->mensaje->save();
     }

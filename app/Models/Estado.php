@@ -13,10 +13,11 @@ class Estado extends Model
         'country_id'
     ];
 
+    //relacion de un estado pertenece a un pais
     public function pais(){
         return $this->belongsTo(Pais::class);
     }
-
+    //relacion un estado tiene muchas ciudades
     public function ciudad(){
         return $this->hasMany(Ciudad::class);
     }

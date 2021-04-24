@@ -47,11 +47,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
+    //relacion un usuario tiene uno o muchos emails
     public function emails(){
         return $this->hasMany(Email::class);
     }
-
+    //se declara un nuevo parametro edad
     protected $appends = ['edad'];
 
     //devuelve la edad calculada con su fecha de nacimiento
@@ -59,14 +59,13 @@ class User extends Authenticatable
     {
         return Carbon::parse($this->fecha_nacimiento )->age;
     }
-
+    //encripta la contraseña y la guarda en el parametro password
     public function encriptarPassword(){
         $this->password =  Hash::make($this->password);
     }
 
     //busca registros que cumplan con el criterio de busqueda en el campo solicitado
     public function scopeBuscarpor($query,$tipo,$buscar){
-        error_log('entro funcion');
         if(($tipo) && ($buscar)){
             return $query->where($tipo,'like','%'.$buscar.'%');
         }
