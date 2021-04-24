@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CiudadController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,10 @@ Route::put('usuario', [UsuarioController::class, 'update'])->name('usuario.updat
 
 Route::get('estados/{id}', [CiudadController::class, 'estados'])->name('estados');
 Route::get('ciudades/{id}', [CiudadController::class, 'ciudades'])->name('ciudades');
+
+Route::get('emails',[EmailController::class,'index'])->name('email');
+Route::get('emails/create',[EmailController::class,'create'])->name('email.create');
+Route::post('emails',[EmailController::class,'store'])->name('email.enviar');
 
 
 

@@ -33,7 +33,7 @@ class UsuarioController extends Controller
         $paises = Pais::all();
         $buscar = $request->get("buscar");
         $tipo = $request->get("tipo");
-        $usuarios = User::buscarpor($tipo, $buscar)->simplePaginate(2);
+        $usuarios = User::buscarpor($tipo, $buscar)->simplePaginate(10);
         return view("usuario.listar", compact("usuarios", "paises"));
     }
 

@@ -47,6 +47,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    
+    public function emails(){
+        return $this->hasMany(Email::class);
+    }
+
     protected $appends = ['edad'];
 
     //devuelve la edad calculada con su fecha de nacimiento
