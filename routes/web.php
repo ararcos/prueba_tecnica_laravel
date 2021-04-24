@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CiudadController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['register'=>false,'reset' => false, 'verify' => false]);
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [UsuarioController::class, 'index'])->name('home');
+
+Route::get('usuario', [UsuarioController::class, 'listar'])->name('usuarios');
+Route::get('usuario/create', [UsuarioController::class, 'create'])->name('usuario.create');
+Route::post('usuario/store', [UsuarioController::class, 'store'])->name('usuario.store');
+Route::delete('usuario', [UsuarioController::class, 'delete'])->name('usuario.delete');
+Route::put('usuario', [UsuarioController::class, 'update'])->name('usuario.update');
+
+
+Route::get('estados/{id}', [CiudadController::class, 'estados'])->name('estados');
+Route::get('ciudades/{id}', [CiudadController::class, 'ciudades'])->name('ciudades');
+
+
+
+
 
 

@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //limpia la tabla de usuarios primero
+        //limpia la tabla de usuarios 
         User::truncate();
         //encripta la contraseña admin
         $password = Hash::make('admin');
